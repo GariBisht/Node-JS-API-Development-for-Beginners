@@ -19,9 +19,9 @@ App.use(morgan("dev"));
 //App.use(myOwnMiddleware);
 // its used in authentication protect some routes
 
-//in controller its use getpost
+//in middleware its use getpost
 //App.get("/", getPosts);
-//in json its use postRoutes
+//in controller its use postRoutes
 App.use("/", postRoutes);
 //App.get("/", getPosts); // protect some routes
  //   res.send("Hello galaxy!from node js");
