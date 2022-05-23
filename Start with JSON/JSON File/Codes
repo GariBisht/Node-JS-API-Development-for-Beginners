@@ -1,1 +1,35 @@
+const express = require("express");
+const App = express();
+
+// require for route
+const morgan = require("morgan");
+//change in case of controllers postRoutes act as middleware
+const postRoutes  = require("./routes/route");
+// bring in routes
+//const {getPosts} = require("./routes/route");
+//in this middleware our app is stuck between this console log its not load the server
+/*const myOwnMiddleware =(req, res, next) => {
+      console.log("middle applied!!!");
+      next();    
+};*/
+
+//middleware is applied in middle (logs some message)
+// use method (validation)
+App.use(morgan("dev"));
+//App.use(myOwnMiddleware);
+// its used in authentication protect some routes
+
+//in controller its use getpost
+//App.get("/", getPosts);
+//in json its use postRoutes
+App.use("/", postRoutes);
+//App.get("/", getPosts); // protect some routes
+ //   res.send("Hello galaxy!from node js");
+//});
+
+// at first this will executes
+const port = 5500;
+App.listen(port, () => {
+    console.log("A nodejs API is listening");
+});
 
